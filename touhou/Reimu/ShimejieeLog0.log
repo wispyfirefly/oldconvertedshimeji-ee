@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-01-15T18:38:59</date>
+  <millis>1705365539352</millis>
+  <sequence>779</sequence>
+  <logger>com.group_finity.mascot.Main</logger>
+  <level>SEVERE</level>
+  <class>com.group_finity.mascot.Main</class>
+  <method>createTrayIcon</method>
+  <thread>1</thread>
+  <message>Failed to create tray icon</message>
+  <exception>
+    <message>java.lang.IllegalArgumentException: input == null!</message>
+    <frame>
+      <class>javax.imageio.ImageIO</class>
+      <method>read</method>
+    </frame>
+    <frame>
+      <class>com.group_finity.mascot.Main</class>
+      <method>createTrayIcon</method>
+      <line>465</line>
+    </frame>
+    <frame>
+      <class>com.group_finity.mascot.Main</class>
+      <method>run</method>
+      <line>279</line>
+    </frame>
+    <frame>
+      <class>com.group_finity.mascot.Main</class>
+      <method>main</method>
+      <line>132</line>
+    </frame>
+  </exception>
+</record>
+</log>
