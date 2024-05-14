@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<マスコット xmlns="http://www.group-finity.com/Mascot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.group-finity.com/Mascot Mascot.xsd">
+
+	<!-- Base list -->
+	## These define the base movements of the mascot, including the images that go with them.
+	## 動作 名前 = Name of the base
+	## 種類/クラス = Type/Class. Best not to change.
+	## 枠 = Frame
+	## アニメーション = Animation. Runs the images inside it as animation
+	## ポーズ 画像 = Image used
+	## 基準座標 = Focus point in the mascot
+	## 移動速度 = Movement (x,y)
+	## 長さ = Length by frames. Apparently this runs on 25 fps
+
+	<動作リスト>
+		## Turning turns the mascot. 
+		<動作 名前="Turning" 種類="組み込み" クラス="com.group_finity.mascot.action.Look" />
+		
+		## Seems to force stop any current action.
+		<動作 名前="Changing" 種類="組み込み" クラス="com.group_finity.mascot.action.Offset" />
+
+
+		<!-- Standing list -->
+		## List for standing bases
+
+
+		<動作 名前="Standing" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Walking" 種類="移動" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+				<ポーズ 画像="/shime2.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+				<ポーズ 画像="/shime3.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Running" 種類="移動" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="-4,0" 長さ="2" />
+				<ポーズ 画像="/shime2.png" 基準座標="64,128" 移動速度="-4,0" 長さ="2" />
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="-4,0" 長さ="2" />
+				<ポーズ 画像="/shime3.png" 基準座標="64,128" 移動速度="-4,0" 長さ="2" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Dashing" 種類="移動" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+				<ポーズ 画像="/shime2.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+				<ポーズ 画像="/shime3.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- Sitting list -->
+		## List of sitting bases
+
+
+		<動作 名前="Sitting" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime11.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Sitting looking up" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime18.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Sitting looking at mouse" 種類="静止" 枠="地面">
+			<アニメーション 条件="#{mascot.environment.cursor.y &lt; mascot.environment.screen.height/2}">
+				<ポーズ 画像="/shime18.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+			<アニメーション>
+				<ポーズ 画像="/shime16.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Sitting reading book" 種類="固定" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime15.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime16.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime17.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime16.png" 基準座標="64,128" 移動速度="0,0" 長さ="6" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Sitting playing DS" 種類="固定" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="25" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="15" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime27.png" 基準座標="64,128" 移動速度="0,0" 長さ="10" />
+				<ポーズ 画像="/shime28.png" 基準座標="64,128" 移動速度="0,0" 長さ="10" />
+			</アニメーション>
+		</動作>		
+
+		<動作 名前="Hanging up" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime29.png" 基準座標="64,112" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Hanging down" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime30.png" 基準座標="64,112" 移動速度="0,0" 長さ="100" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Kicking legs" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime30.png" 基準座標="64,112" 移動速度="0,0" 長さ="10" />
+				<ポーズ 画像="/shime31.png" 基準座標="64,112" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime32.png" 基準座標="64,112" 移動速度="0,0" 長さ="10" />
+				<ポーズ 画像="/shime33.png" 基準座標="64,112" 移動速度="0,0" 長さ="5" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- Lying list -->
+		## List for lying bases
+
+
+		<動作 名前="Lying" 種類="静止" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime22.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Crawling" 種類="移動" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime21.png" 基準座標="64,128" 移動速度="0,0" 長さ="28" />
+				<ポーズ 画像="/shime21.png" 基準座標="64,128" 移動速度="-2,0" 長さ="4" />
+				<ポーズ 画像="/shime22.png" 基準座標="64,128" 移動速度="-2,0" 長さ="4" />
+				<ポーズ 画像="/shime22.png" 基準座標="64,128" 移動速度="-1,0" 長さ="4" />
+				<ポーズ 画像="/shime22.png" 基準座標="64,128" 移動速度="0,0" 長さ="24" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- Ceiling list -->
+		## List for ceiling bases
+
+
+		<動作 名前="Clinging to ceiling" 種類="静止" 枠="天井">
+			<アニメーション>
+				<ポーズ 画像="/shime24.png" 基準座標="64,48" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Moving on ceiling" 種類="移動" 枠="天井">
+			<アニメーション>
+				<ポーズ 画像="/shime26.png" 基準座標="64,48" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime26.png" 基準座標="64,48" 移動速度="-1,0" 長さ="4" />
+				<ポーズ 画像="/shime24.png" 基準座標="64,48" 移動速度="-1,0" 長さ="4" />
+				<ポーズ 画像="/shime25.png" 基準座標="64,48" 移動速度="-1,0" 長さ="4" />
+				<ポーズ 画像="/shime25.png" 基準座標="64,48" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime25.png" 基準座標="64,48" 移動速度="-2,0" 長さ="4" />
+				<ポーズ 画像="/shime24.png" 基準座標="64,48" 移動速度="-2,0" 長さ="4" />
+				<ポーズ 画像="/shime26.png" 基準座標="64,48" 移動速度="-2,0" 長さ="4" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- Wall list -->
+		## List for wall bases
+
+
+		<動作 名前="Clinging to wall" 種類="静止" 枠="壁">
+			<アニメーション>
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Moving on wall" 種類="移動" 枠="壁">
+			<アニメーション 条件="#{目的地Y &lt; mascot.anchor.y}">
+				<ポーズ 画像="/shime14.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime14.png" 基準座標="64,128" 移動速度="0,-1" 長さ="4" />
+				<ポーズ 画像="/shime12.png" 基準座標="64,128" 移動速度="0,-1" 長さ="4" />
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,-1" 長さ="4" />
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,-2" 長さ="4" />
+				<ポーズ 画像="/shime12.png" 基準座標="64,128" 移動速度="0,-2" 長さ="4" />
+				<ポーズ 画像="/shime14.png" 基準座標="64,128" 移動速度="0,-2" 長さ="4" />
+			</アニメーション>
+
+			<アニメーション 条件="#{目的地Y &gt;= mascot.anchor.y}">
+				<ポーズ 画像="/shime14.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime14.png" 基準座標="64,128" 移動速度="0,2" 長さ="4" />
+				<ポーズ 画像="/shime12.png" 基準座標="64,128" 移動速度="0,2" 長さ="4" />
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,2" 長さ="4" />
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime13.png" 基準座標="64,128" 移動速度="0,1" 長さ="4" />
+				<ポーズ 画像="/shime12.png" 基準座標="64,128" 移動速度="0,1" 長さ="4" />
+				<ポーズ 画像="/shime14.png" 基準座標="64,128" 移動速度="0,1" 長さ="4" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- IE list -->
+		## List for IE bases
+
+
+		<動作 名前="Holding IE" 種類="組み込み" クラス="com.group_finity.mascot.action.FallWithIE"
+			 IEの端X="0" IEの端Y="-64">
+			<アニメーション>
+				<ポーズ 画像="/shime36.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Walking with IE" 枠="地面" 種類="組み込み" クラス="com.group_finity.mascot.action.WalkWithIE"
+			 IEの端X="0" IEの端Y="-64">
+			<アニメーション>
+				<ポーズ 画像="/shime34.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+				<ポーズ 画像="/shime35.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+				<ポーズ 画像="/shime34.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+				<ポーズ 画像="/shime36.png" 基準座標="64,128" 移動速度="-2,0" 長さ="6" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Running with IE" 枠="地面" 種類="組み込み" クラス="com.group_finity.mascot.action.WalkWithIE"
+			 IEの端X="0" IEの端Y="-64">
+			<アニメーション>
+				<ポーズ 画像="/shime34.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+				<ポーズ 画像="/shime35.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+				<ポーズ 画像="/shime34.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+				<ポーズ 画像="/shime36.png" 基準座標="64,128" 移動速度="-8,0" 長さ="2" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Throwing IE" 枠="地面" 種類="組み込み" クラス="com.group_finity.mascot.action.ThrowIE"
+			初速X="32" 初速Y="-10" 重力="0.5">
+			<アニメーション>
+				<ポーズ 画像="/shime37.png" 基準座標="64,128" 移動速度="0,0" 長さ="40" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- Falling list -->
+		## List for falling bases
+
+
+		<動作 名前="Jumping" 種類="組み込み" クラス="com.group_finity.mascot.action.Jump"
+			速度="20">
+			<アニメーション>
+				<ポーズ 画像="/shime23.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Falling" 種類="組み込み" クラス="com.group_finity.mascot.action.Fall"
+			空気抵抗X="0.05" 空気抵抗Y="0.1" 重力="2">
+			<アニメーション>
+				<ポーズ 画像="/shime4.png" 基準座標="64,128" 移動速度="0,0" 長さ="250" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Recovering" 種類="固定" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime19.png" 基準座標="64,128" 移動速度="0,0" 長さ="4" />
+				<ポーズ 画像="/shime21.png" 基準座標="64,128" 移動速度="0,0" 長さ="4" />
+                                <ポーズ 画像="/shime20.png" 基準座標="64,128" 移動速度="0,0" 長さ="4" />
+			</アニメーション>
+		</動作>
+
+		<動作 名前="Tripping" 種類="固定" 枠="地面">
+			<アニメーション>
+				<ポーズ 画像="/shime20.png" 基準座標="64,128" 移動速度="-8,0" 長さ="8" />
+				<ポーズ 画像="/shime19.png" 基準座標="64,128" 移動速度="-4,0" 長さ="4" />
+				<ポーズ 画像="/shime21.png" 基準座標="64,128" 移動速度="-2,0" 長さ="4" />
+				<ポーズ 画像="/shime21.png" 基準座標="64,128" 移動速度="0,0" 長さ="10" />
+				<ポーズ 画像="/shime20.png" 基準座標="64,104" 移動速度="-4,0" 長さ="4" />
+			</アニメーション>
+		</動作>
+
+
+		<!-- Dragging list -->
+		## List for dragging bases
+
+
+		<動作 名前="Dragging" 種類="組み込み" クラス="com.group_finity.mascot.action.Dragged">
+			<アニメーション 条件="#{footX &lt; mascot.environment.cursor.x-50}">
+				<ポーズ 画像="/shime9.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+			</アニメーション>
+			<アニメーション 条件="#{footX &lt; mascot.environment.cursor.x-30}">
+				<ポーズ 画像="/shime7.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+			</アニメーション>
+			<アニメーション 条件="#{footX &lt; mascot.environment.cursor.x+30}">
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+			</アニメーション>
+			<アニメーション 条件="#{footX &lt; mascot.environment.cursor.x+50}">
+				<ポーズ 画像="/shime8.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+			</アニメーション>
+			<アニメーション 条件="#{footX &gt;= mascot.environment.cursor.x+30}">
+				<ポーズ 画像="/shime10.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Struggling" 種類="組み込み" クラス="com.group_finity.mascot.action.Regist">
+			<アニメーション>
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="0,0" 長さ="50" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="0,0" 長さ="100" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="5" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime5.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+				<ポーズ 画像="/shime6.png" 基準座標="64,128" 移動速度="0,0" 長さ="2" />
+			</アニメーション>
+		</動作>
+		
+
+		<!-- Cloning list -->
+		## List for cloning bases		
+		## 生まれる場所X = X point for the new-born
+		## 生まれる場所Y = Y point for the new-born
+		## 生まれた時の行動 = The action ran for the new-born
+
+
+		<動作 名前="Pulling1" 種類="組み込み" クラス="com.group_finity.mascot.action.Breed"
+			生まれる場所X="-32" 生まれる場所Y="96" 生まれた時の行動="Being pulled action">
+			<アニメーション>
+				<ポーズ 画像="/shime1.png" 基準座標="64,128" 移動速度="0,0" 長さ="4" />
+				<ポーズ 画像="/shime38.png" 基準座標="96,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime39.png" 基準座標="96,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime40.png" 基準座標="96,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime41.png" 基準座標="96,128" 移動速度="0,0" 長さ="24" />
+			</アニメーション>
+		</動作>
+		<動作 名前="Pulling2" 種類="固定">
+			<アニメーション>
+				<ポーズ 画像="/shime9.png" 基準座標="32,128" 移動速度="20,-20" 長さ="1" />
+				<ポーズ 画像="/shime9.png" 基準座標="32,128" 移動速度="20,-10" 長さ="1" />
+				<ポーズ 画像="/shime9.png" 基準座標="32,128" 移動速度="20,-5" 長さ="1" />
+			</アニメーション>
+		</動作>
+		
+		<動作 名前="Cloning1" 種類="組み込み" クラス="com.group_finity.mascot.action.Breed"
+			生まれる場所X="-32" 生まれる場所Y="0" 生まれた時の行動="Being cloned action">
+			<アニメーション>
+				<ポーズ 画像="/shime42.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime43.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime44.png" 基準座標="64,128" 移動速度="0,0" 長さ="16" />
+				<ポーズ 画像="/shime45.png" 基準座標="64,128" 移動速度="0,0" 長さ="24" />
+				<ポーズ 画像="/shime46.png" 基準座標="64,128" 移動速度="0,0" 長さ="24" />
+			</アニメーション>
+		</動作>	
+	</動作リスト>
+
+
+
+	<!-- Action list -->
+	## Actions are strings of bases that are later ran on 行動.xml. The bases will run one by one unless interrupted. Actions are bases in their own right too.
+	## You don't need to add the "action" suffix at the end. I do so to differentiate them to bases and to prevent duplicate names.
+	## システムが使用する = For system's usage. DO NOT CHANGE THE NAME FOR ACTIONS UNDER THIS BANNER.
+	## 繰り返し = Repeat action
+	## 動作参照 名前 = Name of the bases called upon.
+	## 条件 = Requirement
+	## 長さ = Length of the whole action. If an animation is 25 fps and it is written 250 here, it will logical run for 250/25 or 10 seconds.
+	## 目的地X/目的地Y = Target location X/Target location Y
+	## 初速X/初速Y = Travel speed X/Travel speed Y
+
+	<動作リスト>
+
+		<!-- システムが使用する -->
+		<動作 名前="落下する" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Falling"/>
+			<動作 種類="選択">
+				<動作 種類="複合" 条件="${mascot.environment.floor.isOn(mascot.anchor) ||
+					mascot.environment.activeIE.topBorder.isOn(mascot.anchor) }">
+					<動作参照 名前="Recovering"/>
+					<動作参照 名前="Standing" 長さ="${100+Math.random()*100}" />
+				</動作>
+				<動作参照 名前="Clinging to wall" 長さ="100" />
+			</動作>
+		</動作>
+
+		<!-- システムが使用する -->
+		<動作 名前="ドラッグされる" 種類="複合" 繰り返し="true">
+			<動作参照 名前="Dragging"/>
+			<動作参照 名前="Struggling" />
+		</動作>
+
+		<!-- システムが使用する -->
+		<動作 名前="投げられる" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Falling" 初速X="${mascot.environment.cursor.dx}" 初速Y="${mascot.environment.cursor.dy}"/>
+			<動作 種類="選択">
+				<動作 種類="複合" 条件="${mascot.environment.floor.isOn(mascot.anchor) || mascot.environment.activeIE.topBorder.isOn(mascot.anchor) }">
+					<動作参照 名前="Recovering"/>
+					<動作参照 名前="Standing" 長さ="${100+Math.random()*100}" />
+				</動作>
+				<動作参照 名前="Clinging to wall" 長さ="100" />
+			</動作>
+		</動作>
+
+
+		<動作 名前="Standing action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Standing" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Lying action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Lying" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Kicking legs action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Hanging up" 長さ="10" />
+			<動作参照 名前="Hanging down" 長さ="${100+Math.random()*100}" />
+			<動作参照 名前="Kicking legs" 長さ="${500+Math.random()*100}" />
+			<動作参照 名前="Hanging down" 長さ="${100+Math.random()*100}" />
+			<動作参照 名前="Hanging up" 長さ="10" />
+		</動作>
+
+		<動作 名前="Clinging to wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Clinging to wall" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Falling from wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Changing" X="${mascot.lookRight ? -1 : 1}" />
+			<動作参照 名前="Standing" />
+		</動作>
+
+		<動作 名前="Clinging to ceiling action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Clinging to ceiling" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Falling from ceiling action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Changing" Y="1" />
+			<動作参照 名前="Standing" />
+		</動作>
+
+		<動作 名前="Walking action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.workArea.left+64+Math.random()*(mascot.environment.workArea.width-128)}" />
+		</動作>
+
+		<動作 名前="Running action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.workArea.left+64+Math.random()*(mascot.environment.workArea.width-128)}" />
+		</動作>
+
+		<動作 名前="Crawling action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Crawling" 目的地X="${mascot.environment.workArea.left+64+Math.random()*(mascot.environment.workArea.width-128)}" />
+		</動作>
+
+		<動作 名前="Walking to left sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.workArea.left+100+Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Turning" 右向き="true" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Walking to right sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.workArea.right-100-Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Turning" 右向き="false" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Walking to left wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="#{mascot.environment.workArea.left}" />
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.workArea.bottom-64}" />
+		</動作>
+
+		<動作 名前="Walking to right wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="#{mascot.environment.workArea.right}" />
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.workArea.bottom-64}" />
+		</動作>
+
+		<動作 名前="Running to left sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.workArea.left+100+Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Turning" 右向き="true" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Running to right sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.workArea.right-100-Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Turning" 右向き="false" />
+			<動作参照 名前="Standing" 長さ="${20+Math.random()*20}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Running to left wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="#{mascot.environment.workArea.left}" />
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.workArea.bottom-64}" />
+		</動作>
+
+		<動作 名前="Running to right wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="#{mascot.environment.workArea.right}" />
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.workArea.bottom-64}" />
+		</動作>
+
+		<動作 名前="Jumping to lower IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${(mascot.anchor.x*3+mascot.environment.activeIE.left+Math.random()*mascot.environment.activeIE.width)/4}"
+				 目的地Y="${mascot.environment.activeIE.bottom}" />
+			<動作参照 名前="Clinging to ceiling" 長さ="${100+Math.random()*100}" />
+		</動作>
+
+		<動作 名前="Moving to middle wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on wall" 目的地Y="${mascot.environment.workArea.top+64 + Math.random()*(mascot.environment.workArea.height-128)}" />
+		</動作>
+
+		<動作 名前="Moving on wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.workArea.top+64}" />
+			<動作参照 名前="Changing" Y="-64" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Moving on ceiling" 目的地X="${mascot.lookRight ? mascot.environment.workArea.left+Math.random()*100 : mascot.environment.workArea.right-Math.random*100}" />
+		</動作>
+
+		<動作 名前="Moving on ceiling action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on ceiling" 目的地X="${mascot.environment.workArea.left+64+Math.random()*(mascot.environment.workArea.width-128)}" />
+		</動作>
+
+		<動作 名前="Walking on IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.activeIE.left+64+Math.random()*(mascot.environment.activeIE.width-128)}" />
+		</動作>
+
+		<動作 名前="Running on IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.activeIE.left+64+Math.random()*(mascot.environment.activeIE.width-128)}" />
+		</動作>
+
+		<動作 名前="Crawling on IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Crawling" 目的地X="${mascot.environment.activeIE.left+64+Math.random()*(mascot.environment.activeIE.width-128)}" />
+		</動作>
+
+		<動作 名前="Walking on IE to left sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.activeIE.left+100+Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${100+Math.random()*100}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Walking on IE to right sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.activeIE.right-100-Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${100+Math.random()*100}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Walking left falling from IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.activeIE.left+Math.random()*50}" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+			<動作参照 名前="Falling" 初速X="${-15-Math.random()*5}" 初速Y="${-20-Math.random()*5}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Walking right falling from IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Walking" 目的地X="${mascot.environment.activeIE.right-Math.random()*50}" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+			<動作参照 名前="Falling" 初速X="${15+Math.random()*5}" 初速Y="${-20-Math.random()*5}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Running on IE to left sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.activeIE.left+100+Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${100+Math.random()*100}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Running on IE to right sitting action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.activeIE.right-100-Math.random()*300}" />
+			<動作参照 名前="Standing" 長さ="${100+Math.random()*100}" />
+			<動作参照 名前="Sitting" 長さ="${500+Math.random()*1000}" />
+		</動作>
+
+		<動作 名前="Running left falling from IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.activeIE.left+Math.random()*50}" />
+			<動作参照 名前="Falling" 初速X="${-15-Math.random()*5}" 初速Y="${-20-Math.random()*5}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Running right falling from IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Running" 目的地X="${mascot.environment.activeIE.right-Math.random()*50}" />
+			<動作参照 名前="Falling" 初速X="${15+Math.random()*5}" 初速Y="${-20-Math.random()*5}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Dashing left falling from IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Dashing" 目的地X="${mascot.environment.activeIE.left+Math.random()*20+20}" />
+			<動作参照 名前="Falling" 初速X="${-5-Math.random()*2}" 初速Y="${-20-Math.random()*5}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Dashing right falling from IE action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Dashing" 目的地X="${mascot.environment.activeIE.right-Math.random()*20-20}" />
+			<動作参照 名前="Falling" 初速X="${5+Math.random()*2}" 初速Y="${-20-Math.random()*5}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Moving on IE to middle wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on wall" 目的地Y="${mascot.environment.activeIE.top+64 + Math.random()*(mascot.environment.activeIE.height-128)}" />
+		</動作>
+
+		<動作 名前="Moving on IE wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.activeIE.top+64}" />
+			<動作参照 名前="Changing" Y="-64" />
+			<動作参照 名前="Sitting" 長さ="5" />
+			<動作参照 名前="Standing" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Walking" 目的地X="${mascot.lookRight ? mascot.environment.activeIE.left+Math.random()*100 : mascot.environment.activeIE.right-Math.random*100}" />
+		</動作>
+
+		<動作 名前="Moving on IE ceiling action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on ceiling" 目的地X="${mascot.environment.activeIE.left+64+(Math.random()*mascot.environment.activeIE.width-128)}" />
+		</動作>
+
+		<動作 名前="Moving left on IE from ceiling to wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on ceiling" 目的地X="#{mascot.environment.activeIE.left}" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.activeIE.bottom-64}" />
+		</動作>
+
+		<動作 名前="Moving right on IE from ceiling to wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Moving on ceiling" 目的地X="#{mascot.environment.activeIE.right}" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Moving on wall" 目的地Y="#{mascot.environment.activeIE.bottom-64}" />
+		</動作>
+
+		<動作 名前="Jumping to left wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.workArea.left}" 目的地Y="${mascot.environment.workArea.bottom-Math.random()*mascot.environment.workArea.height/4}" />
+			<動作参照 名前="Clinging to wall" 長さ="${100+Math.random()*100}" />
+		</動作>
+
+		<動作 名前="Jumping to right wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.workArea.right}" 目的地Y="${mascot.environment.workArea.bottom-Math.random()*mascot.environment.workArea.height/4}" />
+			<動作参照 名前="Clinging to wall" 長さ="${100+Math.random()*100}" />
+		</動作>
+
+		<動作 名前="Jumping to left IE wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.activeIE.left}" 目的地Y="${mascot.environment.activeIE.bottom-Math.random()*mascot.environment.activeIE.height/4}" />
+			<動作参照 名前="Clinging to wall" 長さ="${100+Math.random()*100}" />
+		</動作>
+
+		<動作 名前="Jumping to right IE wall action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.activeIE.right}" 目的地Y="${mascot.environment.activeIE.bottom-Math.random()*mascot.environment.activeIE.height/4}" />
+			<動作参照 名前="Clinging to wall" 長さ="${100+Math.random()*100}" />
+		</動作>
+
+		<動作 名前="Walking throwing IE left action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.activeIE.left}" 目的地Y="${mascot.environment.activeIE.bottom+64}" />
+			<動作参照 名前="Holding IE" />
+			<動作参照 名前="Walking with IE" 目的地X="#{mascot.environment.workArea.right-400}" />
+			<動作参照 名前="Throwing IE" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+		</動作>
+		<動作 名前="Walking throwing IE right action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.activeIE.right}" 目的地Y="${mascot.environment.activeIE.bottom+64}" />
+			<動作参照 名前="Holding IE" />
+			<動作参照 名前="Walking with IE" 目的地X="#{mascot.environment.workArea.left+400}" />
+			<動作参照 名前="Throwing IE" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+		</動作>
+		<動作 名前="Running throwing IE left action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.activeIE.left}" 目的地Y="${mascot.environment.activeIE.bottom+64}" />
+			<動作参照 名前="Holding IE" />
+			<動作参照 名前="Running with IE" 目的地X="#{mascot.environment.workArea.right-400}" />
+			<動作参照 名前="Throwing IE" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+		</動作>
+		<動作 名前="Running throwing IE right action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Jumping" 目的地X="${mascot.environment.activeIE.right}" 目的地Y="${mascot.environment.activeIE.bottom+64}" />
+			<動作参照 名前="Holding IE" />
+			<動作参照 名前="Running with IE" 目的地X="#{mascot.environment.workArea.left+400}" />
+			<動作参照 名前="Throwing IE" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+			<動作参照 名前="Turning" />
+			<動作参照 名前="Standing" 長さ="${50+Math.random()*50}" />
+		</動作>
+
+		<動作 名前="マウスの周りに集まる" 種類="複合" 繰り返し="false">
+			<動作 種類="複合" 条件="${mascot.environment.ceiling.isOn(mascot.anchor) || mascot.environment.activeIE.bottomBorder.isOn(mascot.anchor)}">
+				<動作参照 名前="Changing" Y="1" />
+				<動作参照 名前="Falling"/>
+				<動作参照 名前="Recovering" />
+			</動作>
+			<動作 種類="複合" 条件="${mascot.environment.workArea.leftBorder.isOn(mascot.anchor) || mascot.environment.activeIE.rightBorder.isOn(mascot.anchor)}">
+				<動作参照 名前="Changing" X="1" />
+				<動作参照 名前="Falling"/>
+				<動作参照 名前="Recovering" />
+			</動作>
+			<動作 種類="複合" 条件="${mascot.environment.workArea.rightBorder.isOn(mascot.anchor) || mascot.environment.activeIE.leftBorder.isOn(mascot.anchor)}">
+				<動作参照 名前="Changing" X="-1" />
+				<動作参照 名前="Falling"/>
+				<動作参照 名前="Recovering" />
+			</動作>
+			<動作 種類="選択">
+				<動作参照 名前="Dashing left falling from IE action"
+					条件="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor) &amp;&amp;
+					mascot.anchor.x &lt; (mascot.environment.activeIE.left+mascot.environment.activeIE.right)/2}"/>
+				<動作参照 名前="Dashing right falling from IE action"
+					条件="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor) &amp;&amp;
+					mascot.anchor.x &gt;= (mascot.environment.activeIE.left+mascot.environment.activeIE.right)/2}" />
+			</動作>
+			<動作参照 名前="Dashing" 目的地X="${ mascot.anchor.x+(mascot.environment.cursor.x-mascot.anchor.x)*Math.random()/2 }" />
+			<動作参照 名前="Tripping" 条件="${Math.random() &lt; 0.05}" />
+			<動作参照 名前="Dashing" 目的地X="${ mascot.anchor.x+(mascot.environment.cursor.x-mascot.anchor.x)*Math.random() }" />
+			<動作参照 名前="Tripping" 条件="${Math.random() &lt; 0.05}" />
+			<動作参照 名前="Dashing" 目的地X="#{mascot.environment.cursor.x+ずれ}"
+				ずれ="${ mascot.anchor.x &lt; mascot.environment.cursor.x ?
+					-Math.min( mascot.environment.cursor.x-mascot.anchor.x, Math.random()*200) :
+					Math.min( mascot.anchor.x-mascot.environment.cursor.x, Math.random()*200 ) }" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+		</動作>
+
+		<動作 名前="Sitting looking at mouse action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+			<動作参照 名前="Sitting looking at mouse" 長さ="${10+Math.random()*10}" />
+			<動作参照 名前="Turning" 右向き="${mascot.anchor.x &lt; mascot.environment.cursor.x}" />
+		</動作>
+		<動作 名前="Sitting reading book action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Sitting reading book" 長さ="250"/>
+		</動作>
+		<動作 名前="Sitting playing DS action" 種類="複合" 繰り返し="false">
+			<動作参照 名前="Sitting playing DS" 長さ="250"/>
+		</動作>
+
+		<動作 名前="Pulling action" 種類="複合">
+			<動作参照 名前="Pulling1" />
+			<動作参照 名前="Pulling2" />
+			<動作参照 名前="Falling" 初速X="${mascot.lookRight ? -20 : 20}"/>
+			<動作参照 名前="Lying" 長さ="40" />
+		</動作>
+		<動作 名前="Being pulled action" 種類="複合">
+			<動作参照 名前="Falling" 初速X="${mascot.lookRight ? 10 : -10}" 初速Y="-40"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+
+		<動作 名前="Cloning action" 種類="複合">
+			<動作参照 名前="Cloning1" />
+			<動作参照 名前="Pulling2" />
+			<動作参照 名前="Falling" 初速X="${mascot.lookRight ? -10 : 10}"/>
+			<動作参照 名前="Lying" 長さ="40" />
+		</動作>
+		<動作 名前="Being cloned action" 種類="複合">
+			<動作参照 名前="Falling" 初速X="${mascot.lookRight ? -20 : 20}"/>
+			<動作参照 名前="Recovering" />
+		</動作>
+	</動作リスト>
+
+</マスコット>

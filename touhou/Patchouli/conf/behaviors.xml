@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<マスコット xmlns="http://www.group-finity.com/Mascot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.group-finity.com/Mascot Mascot.xsd">
+
+	<行動リスト>
+		## The actions from 動作.xml will run by proccing them here.
+		## システムが使用する = For system's usage. DO NOT CHANGE THE NAME FOR ACTIONS UNDER THIS BANNER.
+		## 行動 名前 = Name of the triggered action
+		## 頻度 = Proc rate. From my theory, if there are 10 triggers here with 100 proc rate each, each of them will proc with 100/(100*10) or 10%. You leave it "0" for actions you don't want the program to run by chance (For example, "Being cloned action" or "Falling action")
+		## 次の行動リスト 追加 = Follow-up triggered action. If it is set to false, the system will proc only for the triggered actions listed inside for the next action.
+		## 行動参照 名前 = Triggered action called upon
+		## 条件 = Requirement. Triggered actions under this tab will only run if condition is met.
+
+
+
+		## The triggerred action for the mouse gathering. Since it has proc rate of 0, it can only be procced manually.
+		<!-- システムが使用する -->
+		<行動 名前="マウスの周りに集まる" 頻度="0">
+			<次の行動リスト 追加="false">
+				<行動参照 名前="Sitting looking at mouse action" 頻度="1" />
+			</次の行動リスト>
+		</行動>
+
+
+		## Triggered action for mouse action		
+		<行動 名前="Sitting looking at mouse action" 頻度="0">
+			<次の行動リスト 追加="false">
+				<行動参照 名前="Sitting looking at mouse action" 頻度="100" />
+				<行動参照 名前="Standing action" 頻度="0" />
+			</次の行動リスト>
+		</行動>
+
+
+		## Triggered action for falling		
+		<!-- システムが使用する -->
+		<行動 名前="落下する" 頻度="0" />
+
+
+		## Triggered action for dragging		
+		<!-- システムが使用する -->
+		<行動 名前="ドラッグされる" 頻度="0" />
+		
+
+		## Triggered action for throwing		
+		<!-- システムが使用する -->
+		<行動 名前="投げられる" 頻度="0" />
+		
+
+		<行動 名前="Being pulled action" 頻度="0" />
+		<行動 名前="Being cloned action" 頻度="0" />
+
+
+		<!-- Ground actions -->
+		## Triggered actions that cover both ground (Non-IE and IE)
+
+
+		<条件 条件="#{mascot.environment.floor.isOn(mascot.anchor) || mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}">
+			<行動 名前="Standing action" 頻度="100" />
+			<行動 名前="Sitting action" 頻度="100">
+				<次の行動リスト 追加="true">
+					<行動参照 名前="Lying action" 頻度="100" />
+					<行動参照 名前="Kicking legs action" 頻度="100" />
+				</次の行動リスト>
+			</行動>
+			<行動 名前="Kicking legs action" 頻度="100" />
+			<行動 名前="Lying action" 頻度="0">
+				<次の行動リスト 追加="false">
+					<行動参照 名前="Sitting action" 頻度="100" />
+					<行動参照 名前="Crawling on IE action" 頻度="100" 条件="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+					<行動参照 名前="Crawling action" 頻度="100" 条件="${mascot.environment.floor.isOn(mascot.anchor)}" />
+				</次の行動リスト>
+			</行動>
+			<行動 名前="Sitting reading book action" 頻度="100" />
+			<行動 名前="Sitting playing DS action" 頻度="100" />
+		</条件>
+
+
+		<!-- Wall actions -->
+		## Triggered actions that cover both wall (Non-IE and IE)
+
+
+		<条件 条件="#{ mascot.lookRight ? (
+					mascot.environment.workArea.rightBorder.isOn(mascot.anchor) || 
+					mascot.environment.activeIE.leftBorder.isOn(mascot.anchor) ) : (
+					mascot.environment.workArea.leftBorder.isOn(mascot.anchor) || 
+					mascot.environment.activeIE.rightBorder.isOn(mascot.anchor) ) }">
+			<行動 名前="Clinging to wall action" 頻度="100" />
+			<行動 名前="Falling from wall action" 頻度="50" 条件="${!mascot.environment.floor.isOn(mascot.anchor)}" />
+		</条件>
+		
+		<!-- Ceiling actions -->
+		## Triggered actions that cover both ceiling (Non-IE and IE)
+
+
+		<条件 条件="#{mascot.environment.ceiling.isOn(mascot.anchor) || mascot.environment.activeIE.bottomBorder.isOn(mascot.anchor)}">
+			<行動 名前="Clinging to ceiling action" 頻度="100" />
+			<行動 名前="Falling from ceiling action" 頻度="50" />
+		</条件>
+
+		
+		<!-- Working ground actions -->
+		## Triggered actions for non-IE ground
+
+
+		<条件 条件="#{mascot.environment.floor.isOn(mascot.anchor)}">
+			<行動 名前="Walking action" 頻度="200" />
+			<行動 名前="Running action" 頻度="0" />
+			<行動 名前="Crawling action" 頻度="100">
+				<次の行動リスト 追加="false">
+					<!-- ずりずりした後はそのままボーっとする -->
+					<行動参照 名前="Lying action" 頻度="1" />
+				</次の行動リスト>
+			</行動>
+			<行動 名前="Walking to left sitting action" 頻度="100" />
+			<行動 名前="Walking to right sitting action" 頻度="100" />
+			<行動 名前="Walking to left wall action" 頻度="100" />
+			<行動 名前="Walking to right wall action" 頻度="100" />
+			<行動 名前="Running to left sitting action" 頻度="0" />
+			<行動 名前="Running to right sitting action" 頻度="0" />
+			<行動 名前="Running to left wall action" 頻度="0" />
+			<行動 名前="Running to right wall action" 頻度="0" />
+			<行動 名前="Jumping to lower IE action" 頻度="50" 条件="#{mascot.anchor.x &gt;= mascot.environment.activeIE.left &amp;&amp;
+				mascot.anchor.x &lt; mascot.environment.activeIE.right}" />
+				
+			<行動 名前="Pulling action" 頻度="50" 条件="#{mascot.totalCount &lt; 10}" />
+			<行動 名前="Cloning action" 頻度="50" 条件="#{mascot.totalCount &lt; 10}" />
+		</条件>
+		
+
+		<!-- Working wall actions -->
+		## Triggered actions for non-IE wall
+
+
+		<条件 条件="#{mascot.lookRight ? mascot.environment.workArea.rightBorder.isOn(mascot.anchor) :
+					mascot.environment.workArea.leftBorder.isOn(mascot.anchor)}">
+			<行動 名前="Moving to middle wall action" 頻度="100" />
+			<行動 名前="Moving on wall action" 頻度="100" />
+		</条件>
+		
+
+		<!-- Working ceiling actions -->
+		## Triggered actions for non-IE ceiling
+
+
+		<条件 条件="#{mascot.environment.ceiling.isOn(mascot.anchor)}">
+			<行動 名前="Moving on ceiling action" 頻度="100" />
+		</条件>
+		
+
+		<!-- Upper IE actions -->
+		## Triggered actions for IE ground (Upper part of IE)
+
+
+		<条件 条件="#{mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}">
+			<行動 名前="Walking on IE action" 頻度="200" />
+			<行動 名前="Running on IE action" 頻度="0" />
+			<行動 名前="Crawling on IE action" 頻度="100">
+				<次の行動リスト 追加="false">
+					<!-- ずりずりした後はそのままボーっとする -->
+					<行動参照 名前="Lying action" 頻度="1" />
+				</次の行動リスト>
+			</行動>
+			<行動 名前="Walking on IE to left sitting action" 頻度="100" />
+			<行動 名前="Walking on IE to right sitting action" 頻度="100" />
+			<行動 名前="Walking left falling from IE action" 頻度="100" />
+			<行動 名前="Walking right falling from IE action" 頻度="100" />
+			<行動 名前="Running on IE to left sitting action" 頻度="0" />
+			<行動 名前="Running on IE to right sitting action" 頻度="0" />
+			<行動 名前="Running left falling from IE action" 頻度="0" />
+			<行動 名前="Running right falling from IE action" 頻度="0" />
+		</条件>
+		
+
+		<!-- IE wall actions -->
+		## Triggered actions for IE wall
+
+
+		<条件 条件="#{mascot.lookRight ? mascot.environment.activeIE.leftBorder.isOn(mascot.anchor) :
+					mascot.environment.activeIE.rightBorder.isOn(mascot.anchor)}">
+			<行動 名前="Moving on IE to middle wall action" 頻度="100" />
+			<行動 名前="Moving on IE wall action" 頻度="100" />
+			
+		</条件>
+
+
+		<!-- Lower IE actions -->
+		## Triggered actions for IE ceiling (Lower part of IE)
+
+
+		<条件 条件="#{mascot.environment.activeIE.bottomBorder.isOn(mascot.anchor)}">
+			<行動 名前="Moving on IE ceiling action" 頻度="100" />
+			<行動 名前="Moving left on IE from ceiling to wall action" 頻度="100" />
+			<行動 名前="Moving right on IE from ceiling to wall action" 頻度="100" />
+		</条件>
+		
+		<行動 名前="Jumping to left wall action" 頻度="50" 条件="#{!mascot.environment.workArea.leftBorder.isOn(mascot.anchor) &amp;&amp;
+			mascot.anchor.x &lt; mascot.environment.workArea.left+400 &amp;&amp;
+			Math.abs(mascot.environment.workArea.bottom-mascot.anchor.y) &lt;mascot.environment.workArea.height/4}" />
+		<行動 名前="Jumping to right wall action" 頻度="50" 条件="#{!mascot.environment.workArea.rightBorder.isOn(mascot.anchor) &amp;&amp;
+			mascot.anchor.x &gt;= mascot.environment.workArea.right-400 &amp;&amp;
+			Math.abs(mascot.environment.workArea.bottom-mascot.anchor.y) &lt;mascot.environment.workArea.height/4}" />
+
+
+		<!-- IE sighted actions -->
+		## Triggered actions for when IE is sighted.
+
+
+		<条件 条件="#{mascot.environment.activeIE.visible}">
+			<行動 名前="Jumping to left IE wall action" 頻度="50" 条件="#{mascot.anchor.x &lt; mascot.environment.activeIE.left &amp;&amp;
+				Math.abs(mascot.environment.activeIE.bottom-mascot.anchor.y) &lt;mascot.environment.activeIE.height/4}" />
+			<行動 名前="Jumping to right IE wall action" 頻度="50" 条件="#{mascot.anchor.x &gt; mascot.environment.activeIE.right &amp;&amp;
+				Math.abs(mascot.environment.activeIE.bottom-mascot.anchor.y) &lt;mascot.environment.activeIE.height/4}" />
+				
+			<行動 名前="Walking throwing IE left action" 頻度="50" 条件="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &lt; mascot.environment.activeIE.left}" />
+			<行動 名前="Walking throwing IE right action" 頻度="50" 条件="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &gt; mascot.environment.activeIE.right}" />
+			<行動 名前="Running throwing IE left action" 頻度="0" 条件="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &lt; mascot.environment.activeIE.left}" />
+			<行動 名前="Running throwing IE right action" 頻度="0" 条件="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &gt; mascot.environment.activeIE.right}" />
+		</条件>
+
+
+	</行動リスト>
+</マスコット>
